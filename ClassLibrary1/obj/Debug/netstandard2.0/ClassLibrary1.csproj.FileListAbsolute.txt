@@ -1,0 +1,16 @@
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.deps.json
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.csprojAssemblyReference.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfoInputs.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV2\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.deps.json
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\ClassLibrary1.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.csprojAssemblyReference.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfoInputs.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.AssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\ClassLibrary1.pdb
