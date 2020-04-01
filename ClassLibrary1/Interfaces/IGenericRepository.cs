@@ -6,12 +6,10 @@ namespace ClassLibrary1
 {
     public interface IGenericRepository<T> where T : class
     {
-        IEnumerable<T> GerAll();
-        T GetById(object id);
+        IEnumerable<T> GetAll();
+        T GetById(int id);
         void Insert(T obj);
         void Update(T obj);
-        void Delete(object id);
-        public void Add();
-        
+        void Delete(int id);       
     }
 }

@@ -2,7 +2,7 @@
 using ClassLibrary1.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFWebApiV2
+namespace ClassLibrary1.Context
 {
     public class ApplicationContext : DbContext
     {
