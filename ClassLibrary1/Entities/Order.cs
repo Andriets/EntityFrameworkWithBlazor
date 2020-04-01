@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    public class Order
+    public class Order : BaseEntity
     {
-        public int Id { get; set; }
         public int CountOfProduct { get; set; }
         public double OrderSum { get; set; }
         public int UserId { get; set; }

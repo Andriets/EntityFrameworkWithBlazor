@@ -1,12 +1,12 @@
-﻿using System;
+﻿using ClassLibrary1.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ClassLibrary1
 {
-    public class User 
+    public class User : BaseEntity
     {
-        public int Id { get; set; } 
         public string Name { get; set; }
         public string Surname { get; set; }
         public string LastName { get; set; }

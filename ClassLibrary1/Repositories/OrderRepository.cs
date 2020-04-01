@@ -1,0 +1,14 @@
+﻿using ClassLibrary1.Context;
+using ClassLibrary1.Interfaces.IRepositories;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ClassLibrary1.Repositories
+{
+    public class OrderRepository : GenericRepository<Order> , IOrderRepository
+    {
+        public OrderRepository(ApplicationContext context) : base(context) { }
+
+    }
+}
