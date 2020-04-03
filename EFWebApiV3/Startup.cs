@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibrary1;
+using ClassLibrary1.Context;
 using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IRepositories;
 using ClassLibrary1.Interfaces.IServices;
@@ -34,13 +36,14 @@ namespace EFWebApiV3
             services.AddControllers();
             #region  repositories
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<ApplicationContext>();
             /*services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();*/
-            #endregion  
+            #endregion
 
             #region  services
-            
+
             services.AddTransient<IOrderService, OrderService>();
             /*services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductTypeService, ProductTypeService>();

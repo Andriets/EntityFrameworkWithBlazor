@@ -1,0 +1,8 @@
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\DataAccessLayer.deps.json
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\DataAccessLayer.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\DataAccessLayer.csprojAssemblyReference.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\DataAccessLayer.AssemblyInfoInputs.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\DataAccessLayer.AssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\DataAccessLayer.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.0\DataAccessLayer.pdb

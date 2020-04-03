@@ -25,7 +25,7 @@ namespace ClassLibrary1.Services
 
         public Order GetById(int id)
         {
-            return UOW.OrderRepository.GetById(id);
+            return UOW.OrderRepository.GetById(id).Result;
         }
 
         public void Insert(Order obj)

@@ -4,12 +4,12 @@
     "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\EFWebApiV3\\EFWebApiV3.csproj": {}
   },
   "projects": {
-    "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\ClassLibrary1.csproj": {
+    "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\ClassLibrary1.csproj",
-        "projectName": "ClassLibrary1",
-        "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
@@ -98,8 +98,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\ClassLibrary1.csproj": {
-                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\ClassLibrary1.csproj"
+              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj": {
+                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj"
               }
             }
           }
