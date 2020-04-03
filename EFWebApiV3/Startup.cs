@@ -32,19 +32,19 @@ namespace EFWebApiV3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            #region SQL repositories
+            #region  repositories
             services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
+            /*services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();*/
             #endregion  
 
-            #region SQL services
+            #region  services
             
             services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IProductService, ProductService>();
+            /*services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductTypeService, ProductTypeService>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserService, UserService>();*/
 
             #endregion
 

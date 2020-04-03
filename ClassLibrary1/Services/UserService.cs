@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ClassLibrary1.Services
 {
-    public class UserService : IUserService
+    /*public class UserService : IUserService
     {
         IUnitOfWork UOW;
         public UserService(IUnitOfWork unitOfWork)
@@ -38,5 +38,5 @@ namespace ClassLibrary1.Services
         {
             UOW.UserRepository.Update(obj);
         }
-    }
+    }*/
 }

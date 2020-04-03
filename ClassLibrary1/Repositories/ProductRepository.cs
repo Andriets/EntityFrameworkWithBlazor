@@ -7,8 +7,8 @@ using System.Text;
 
 namespace ClassLibrary1.Repositories
 {
-    public class ProductRepository : GenericRepository<Product>, IProductRepository
+    /*public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         public ProductRepository(ApplicationContext context) :base(context) { }
-    }
+    }*/
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ClassLibrary1.Services
 {
-    public class ProductTypeService : IProductTypeService
+    /*public class ProductTypeService : IProductTypeService
     {
         IUnitOfWork UOW;
         public ProductTypeService(IUnitOfWork unitOfWork)
@@ -39,5 +39,5 @@ namespace ClassLibrary1.Services
         {
             UOW.ProductTypeRepository.Update(obj);
         }
-    }
+    }*/
 }

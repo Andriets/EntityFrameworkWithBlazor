@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClassLibrary1.Interfaces.IRepositories
 {
-    public interface IProductRepository : IGenericRepository<Product>
+   /* public interface IProductRepository : IGenericRepository<Product>
     {
-    }
+    }*/
 }

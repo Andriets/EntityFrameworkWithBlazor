@@ -9,19 +9,19 @@ namespace ClassLibrary1.UOW
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IOrderRepository orderRepository;
-        private readonly IProductRepository productRepository;
+        /*private readonly IProductRepository productRepository;
         private readonly IProductTypeRepository productTypeRepository;
-        private readonly IUserRepository userRepository;
+        private readonly IUserRepository userRepository;*/
 
-        public UnitOfWork(IOrderRepository orderRepository,
-            IProductRepository productRepository,
+        public UnitOfWork(IOrderRepository orderRepository)/*,*/
+           /* IProductRepository productRepository,
             IProductTypeRepository productTypeRepository,
-            IUserRepository userRepository)
+            IUserRepository userRepository)*/
         {
             this.orderRepository = orderRepository;
-            this.productRepository = productRepository;
+           /* this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
-            this.userRepository = userRepository;
+            this.userRepository = userRepository;*/
         }
 
         public IOrderRepository OrderRepository
@@ -31,7 +31,7 @@ namespace ClassLibrary1.UOW
                 return orderRepository;
             }
         }
-        public IProductRepository ProductRepository
+       /* public IProductRepository ProductRepository
         {
             get
             {
@@ -51,6 +51,6 @@ namespace ClassLibrary1.UOW
             {
                 return userRepository;
             }
-        }
+        }*/
     }
 }

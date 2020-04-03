@@ -5,12 +5,12 @@ using System.Text;
 
 namespace ClassLibrary1.Interfaces.IServices
 {
-    public interface IProductTypeService
+    /*public interface IProductTypeService
     {
         IEnumerable<ProductType> GetAll();
         ProductType GetById(int id);
         void Insert(ProductType obj);
         void Update(ProductType obj);
         void Delete(int id);
-    }
+    }*/
 }

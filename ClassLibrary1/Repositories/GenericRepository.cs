@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using ClassLibrary1.Entities;
+using System.Threading.Tasks;
 
 namespace ClassLibrary1.Repositories
 {
@@ -18,33 +19,33 @@ namespace ClassLibrary1.Repositories
             this.context = context;
             table = context.Set<T>();
         }
-        public void Delete(int id)
+        public async void Delete(int id)
         {
             var entity = table.SingleOrDefault(s => s.Id == id);
             table.Remove(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
         public IEnumerable<T> GetAll()
         {
             return table.AsEnumerable();
         }
 
-        public T GetById(int id)
+        public async Task<T> GetById(int id)
         {
-            return table.SingleOrDefault(s => s.Id == id);
+            return await table.SingleOrDefaultAsync(s => s.Id == id);
         }
 
-        public void Insert(T obj)
+        public async void Insert(T obj)
         {
-            table.Add(obj);
-            context.SaveChanges();
+            await table.AddAsync(obj);
+            await context.SaveChangesAsync();
         }
 
-        public void Update(T obj)
+        public async void Update(T obj)
         {
             var entity = table.SingleOrDefault(s => s.Id == obj.Id);
             table.Update(entity);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
