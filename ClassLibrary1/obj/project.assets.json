@@ -6184,9 +6184,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
-      "projectName": "DataAccessLayer",
-      "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
+      "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",

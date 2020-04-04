@@ -8,8 +8,8 @@ namespace ClassLibrary1.Interfaces
     public interface IUnitOfWork
     {
         IOrderRepository OrderRepository { get; }
-        /*IProductRepository ProductRepository { get; }
+        IProductRepository ProductRepository { get; }
         IProductTypeRepository ProductTypeRepository { get; }
-        IUserRepository UserRepository { get; }*/
+        IUserRepository UserRepository { get; }
     }
 }

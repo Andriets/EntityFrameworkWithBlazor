@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ClassLibrary1;
 using ClassLibrary1.Context;
 using ClassLibrary1.Interfaces;
@@ -34,20 +35,22 @@ namespace EFWebApiV3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllersWithViews();
             #region  repositories
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<ApplicationContext>();
-            /*services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();*/
+            services.AddTransient<IProductRepository, ProductRepository>();
             #endregion
 
             #region  services
 
             services.AddTransient<IOrderService, OrderService>();
-            /*services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductTypeService, ProductTypeService>();
-            services.AddTransient<IUserService, UserService>();*/
+            services.AddTransient<IUserService, UserService>();
 
             #endregion
 

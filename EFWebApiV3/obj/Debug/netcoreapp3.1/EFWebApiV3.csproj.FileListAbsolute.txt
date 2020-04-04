@@ -47,6 +47,10 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcor
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\obj\Debug\netcoreapp3.1\EFWebApiV3.csproj.CopyComplete
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\BLL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\DAL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\BLL.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\DAL.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\obj\Debug\netcoreapp3.1\EFWebApiV3.MvcApplicationPartsAssemblyInfo.cache
-D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\DataAccessLayer.dll
-D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\DataAccessLayer.pdb

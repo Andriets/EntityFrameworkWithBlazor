@@ -6,8 +6,8 @@ using System.Text;
 
 namespace ClassLibrary1.Repositories
 {
-   /* public class UserRepository : GenericRepository<User>, IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        public UserRepository(ApplicationContext context) :base(context) { }
-    }*/
+        public UserRepository(ApplicationContext context) : base(context) { }
+    }
 }

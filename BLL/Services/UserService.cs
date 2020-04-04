@@ -3,10 +3,11 @@ using ClassLibrary1.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClassLibrary1.Services
 {
-    /*public class UserService : IUserService
+    public class UserService : IUserService
     {
         IUnitOfWork UOW;
         public UserService(IUnitOfWork unitOfWork)
@@ -24,7 +25,7 @@ namespace ClassLibrary1.Services
             return UOW.UserRepository.GetAll();
         }
 
-        public User GetById(int id)
+        public Task<User> GetById(int id)
         {
             return UOW.UserRepository.GetById(id);
         }
@@ -38,5 +39,5 @@ namespace ClassLibrary1.Services
         {
             UOW.UserRepository.Update(obj);
         }
-    }*/
+    }
 }

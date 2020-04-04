@@ -4,12 +4,78 @@
     "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\EFWebApiV3\\EFWebApiV3.csproj": {}
   },
   "projects": {
-    "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj": {
+    "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
-        "projectName": "DataAccessLayer",
-        "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj",
+        "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\BLL.csproj",
+        "projectName": "BLL",
+        "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj": {
+                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
@@ -98,8 +164,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj": {
-                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DataAccessLayer.csproj"
+              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\BLL.csproj": {
+                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\BLL\\BLL.csproj"
+              },
+              "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj": {
+                "projectPath": "D:\\Study\\2 курс\\OOП\\Entity Framework\\EFWebApiV3\\ClassLibrary1\\DAL.csproj"
               }
             }
           }
@@ -113,6 +182,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.3, )"

@@ -4,10 +4,11 @@ using ClassLibrary1.Interfaces.IServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClassLibrary1.Services
 {
-   /* public class ProductService : IProductService
+    public class ProductService : IProductService
     {
         IUnitOfWork UOW;
 
@@ -26,7 +27,7 @@ namespace ClassLibrary1.Services
             return UOW.ProductRepository.GetAll();
         }
 
-        public Product GetById(int id)
+        public Task<Product> GetById(int id)
         {
             return UOW.ProductRepository.GetById(id);
         }
@@ -40,5 +41,5 @@ namespace ClassLibrary1.Services
         {
             UOW.ProductRepository.Update(obj);
         }
-    }*/
+    }
 }
