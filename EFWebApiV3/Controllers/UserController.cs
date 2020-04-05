@@ -10,37 +10,29 @@ using System.Threading.Tasks;
 
 namespace EFWebApiV3.Controllers
 {
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         #region Propertirs
         IUserService _UserService;
-        private readonly IMapper _mapper;
-        IGenericRepository<User> repo;
         #endregion
 
         #region Constructors
-        public UserController(IUserService sqlOrderService, IMapper mapper)
+        public UserController(IUserService sqlOrderService)
         {
-            _UserService = sqlOrderService;
-            _mapper = mapper;  
+            _UserService = sqlOrderService; 
         }
         #endregion
-        public IActionResult Index()
-        {
-            // Populate the user details from DB
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<User, UserView>());
-            var mapper = new Mapper(config);
 
-            var users = mapper.Map<List<UserView>>(repo.GetAll());
-
-            return View(users);
-        }
         #region APIs
         [Route("Users")]
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<UserDTO> Get()
         {
-            return _UserService.GetAll();
+            var models = _UserService.GetAll().ToList();
+            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);
+
+            return mapper.Map<List<User>, List<UserDTO>>(models);
         }
 
         [Route("User/{Id}")]

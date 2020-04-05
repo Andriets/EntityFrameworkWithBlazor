@@ -1,4 +1,6 @@
-﻿using ClassLibrary1.Interfaces;
+﻿using AutoMapper;
+using BLL.DTO;
+using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IServices;
 using System;
 using System.Collections.Generic;

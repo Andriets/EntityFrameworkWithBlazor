@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.DTO
 {
-    public class OrderView
+    public class OrderDTO
     {
         public int CountOfProduct { get; set; }
         public double OrderSum { get; set; }
