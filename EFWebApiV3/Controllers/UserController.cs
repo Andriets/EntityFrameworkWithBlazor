@@ -14,12 +14,14 @@ namespace EFWebApiV3.Controllers
     {
         #region Propertirs
         IUserService _UserService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors
-        public UserController(IUserService sqlOrderService)
+        public UserController(IUserService sqlOrderService, IMapper mapper)
         {
-            _UserService = sqlOrderService; 
+            _UserService = sqlOrderService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -29,10 +31,10 @@ namespace EFWebApiV3.Controllers
         public IEnumerable<UserDTO> Get()
         {
             var models = _UserService.GetAll().ToList();
-            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);
+/*            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+            var mapper = new Mapper(config);*/
 
-            return mapper.Map<List<User>, List<UserDTO>>(models);
+            return _mapper.Map<List<User>, List<UserDTO>>(models);
         }
 
         [Route("User/{Id}")]

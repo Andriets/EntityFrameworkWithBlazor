@@ -1,0 +1,8 @@
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.1\DAL.deps.json
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.1\DAL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.1\DAL.csprojAssemblyReference.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.1\DAL.AssemblyInfoInputs.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.1\DAL.AssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\bin\Debug\netstandard2.1\DAL.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.1\DAL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\ClassLibrary1\obj\Debug\netstandard2.1\DAL.pdb

@@ -1,0 +1,11 @@
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.AssemblyInfoInputs.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.AssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.csprojAssemblyReference.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\bin\Debug\netstandard2.1\BLL.deps.json
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\bin\Debug\netstandard2.1\BLL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\bin\Debug\netstandard2.1\BLL.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\bin\Debug\netstandard2.1\DAL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\bin\Debug\netstandard2.1\DAL.pdb
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.csproj.CopyComplete
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BLL\obj\Debug\netstandard2.1\BLL.pdb

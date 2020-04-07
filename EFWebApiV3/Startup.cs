@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using BLL.Mapping;
 using ClassLibrary1;
 using ClassLibrary1.Context;
 using ClassLibrary1.Interfaces;
@@ -14,6 +15,7 @@ using ClassLibrary1.UOW;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,7 +37,7 @@ namespace EFWebApiV3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(UserMap));
             services.AddControllersWithViews();
             #region  repositories
             services.AddTransient<IOrderRepository, OrderRepository>();
