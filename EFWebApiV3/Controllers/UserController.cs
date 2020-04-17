@@ -3,7 +3,6 @@ using BLL.DTO;
 using ClassLibrary1;
 using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,9 +17,9 @@ namespace EFWebApiV3.Controllers
         #endregion
 
         #region Constructors
-        public UserController(IUserService sqlOrderService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper)
         {
-            _UserService = sqlOrderService;
+            _UserService = userService;
             _mapper = mapper;
         }
         #endregion
@@ -31,7 +30,7 @@ namespace EFWebApiV3.Controllers
         public IEnumerable<UserDTO> Get()
         {
             var models = _UserService.GetAll().ToList();
-/*            var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
+/*          var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
             var mapper = new Mapper(config);*/
 
             return _mapper.Map<List<User>, List<UserDTO>>(models);
