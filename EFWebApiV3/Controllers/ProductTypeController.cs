@@ -29,18 +29,26 @@ namespace EFWebApiV3.Controllers
         #region APIs
         [Route("ProductTypes")]
         [HttpGet]
-        public IEnumerable<ProductTypeDTO> Get()
+        public IActionResult Get()
         {
             var models = _ProductTypeService.GetAll().ToList();
-
-            return _mapper.Map<List<ProductType>, List<ProductTypeDTO>>(models);
+            var list = _mapper.Map<List<ProductType>, List<ProductTypeDTO>>(models);
+            if (list == null)
+                return NotFound("Empty");
+            else
+                return Ok(list);
         }
 
         [Route("ProductType/{Id}")]
         [HttpGet]
-        public Task<ProductType> Get(int Id)
+        public IActionResult Get(int Id)
         {
-            return _ProductTypeService.GetById(Id);
+            var productType = _ProductTypeService.GetById(Id);
+            var res = _mapper.Map<ProductType, ProductTypeDTO>(productType.Result);
+            if (res == null)
+                return NotFound("Empty");
+            else
+                return Ok(res);
         }
 
         [Route("ProductType")]

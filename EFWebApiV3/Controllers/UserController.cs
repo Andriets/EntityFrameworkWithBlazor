@@ -5,11 +5,14 @@ using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+
 
 namespace EFWebApiV3.Controllers
 {
-    public class UserController : ControllerBase
+    public class UserController : /*Controller*/ControllerBase
     {
         #region Propertirs
         IUserService _UserService;
@@ -27,13 +30,14 @@ namespace EFWebApiV3.Controllers
         #region APIs
         [Route("Users")]
         [HttpGet]
-        public IEnumerable<UserDTO> Get()
+        public IActionResult Get()
         {
             var models = _UserService.GetAll().ToList();
-/*          var config = new MapperConfiguration(mc => mc.CreateMap<User, UserDTO>());
-            var mapper = new Mapper(config);*/
-
-            return _mapper.Map<List<User>, List<UserDTO>>(models);
+            var list = _mapper.Map<List<User>, List<UserDTO>>(models);
+            if (list == null)
+                return NotFound("The list is empty");
+            else 
+                return Ok(list);
         }
 
         [Route("User/{Id}")]

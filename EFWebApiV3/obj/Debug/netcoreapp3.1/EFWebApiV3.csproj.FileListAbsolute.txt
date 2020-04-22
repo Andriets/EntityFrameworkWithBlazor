@@ -53,7 +53,6 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcor
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\DAL.pdb
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\obj\Debug\netcoreapp3.1\EFWebApiV3.MvcApplicationPartsAssemblyInfo.cache
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\EFWebApiV3.StaticWebAssets.xml
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -66,4 +65,8 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcor
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\obj\Debug\netcoreapp3.1\EFWebApiV3.MvcApplicationPartsAssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\EFWebApiV3\obj\Debug\netcoreapp3.1\EFWebApiV3.MvcApplicationPartsAssemblyInfo.cache

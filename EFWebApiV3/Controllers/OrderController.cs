@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BLL.DTO;
 using ClassLibrary1;
 using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
@@ -13,27 +14,39 @@ namespace EFWebApiV3.Controllers
     {
         #region Propertirs
         IOrderService _OrderService;
+        IMapper _mapper;
         #endregion
 
         #region Constructors
-        public OrderController(IOrderService sqlOrderService)
+        public OrderController(IOrderService sqlOrderService, IMapper mapper)
         {
             _OrderService = sqlOrderService;
+            _mapper = mapper;
         }
         #endregion
         #region APIs
         [Route("Orders")]
         [HttpGet]
-        public IEnumerable<Order> Get()
+        public IActionResult Get()
         {
-            return _OrderService.GetAll();
+            var models = _OrderService.GetAll().ToList();
+            var list = _mapper.Map<List<Order>, List<OrderDTO>>(models);
+            if (list == null)
+                return NotFound("");
+            else
+                return Ok(list);
         }
 
         [Route("Order/{Id}")]
         [HttpGet]
-        public Order Get(int Id)
+        public IActionResult Get(int Id)
         {
-            return _OrderService.GetById(Id);
+            Order order = _OrderService.GetById(Id);
+            var res = _mapper.Map<Order, OrderDTO>(order);
+            if (res == null)
+                return NotFound();
+            else
+                return Ok(res);
         }
 
         [Route("Order")]
