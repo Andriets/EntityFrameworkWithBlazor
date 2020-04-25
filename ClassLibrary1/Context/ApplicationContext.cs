@@ -6,12 +6,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ClassLibrary1.Context
 {
-    public class ApplicationContext : DbContext /*IdentityDbContext<User>*/
+    public class ApplicationContext : IdentityDbContext<User>
     {
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
-        public DbSet<User> Users { get; set; }
 
         public ApplicationContext()
         {
@@ -25,7 +24,8 @@ namespace ClassLibrary1.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
+            base.OnModelCreating(modelBuilder);
+            /*modelBuilder.Entity<Product>()
                 .HasOne(p => p.ProductType)
                 .WithMany(t => t.Products)
                 .HasForeignKey(p => p.ProductTypeId);
@@ -38,7 +38,7 @@ namespace ClassLibrary1.Context
             modelBuilder.Entity<Order>()
                 .HasOne(p => p.User)
                 .WithMany(t => t.Orders)
-                .HasForeignKey(p => p.UserId);
+                .HasForeignKey(p => p.UserId);*/
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IRepositories;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,17 +12,16 @@ namespace ClassLibrary1.UOW
         private readonly IOrderRepository orderRepository;
         private readonly IProductRepository productRepository;
         private readonly IProductTypeRepository productTypeRepository;
-        private readonly IUserRepository userRepository;
+        public UserManager<User> UserManager { get; private set; }
+
 
         public UnitOfWork(IOrderRepository orderRepository,
             IProductRepository productRepository,
-            IProductTypeRepository productTypeRepository,
-            IUserRepository userRepository)
+            IProductTypeRepository productTypeRepository)
         {
             this.orderRepository = orderRepository;
             this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
-            this.userRepository = userRepository;
         }
 
         public IOrderRepository OrderRepository
@@ -43,13 +43,6 @@ namespace ClassLibrary1.UOW
             get
             {
                 return productTypeRepository;
-            }
-        }
-        public IUserRepository UserRepository
-        {
-            get
-            {
-                return userRepository;
             }
         }
     }

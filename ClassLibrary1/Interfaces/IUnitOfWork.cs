@@ -1,4 +1,5 @@
 ﻿using ClassLibrary1.Interfaces.IRepositories;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,6 @@ namespace ClassLibrary1.Interfaces
         IOrderRepository OrderRepository { get; }
         IProductRepository ProductRepository { get; }
         IProductTypeRepository ProductTypeRepository { get; }
-        IUserRepository UserRepository { get; }
+        UserManager<User> UserManager { get; }
     }
 }

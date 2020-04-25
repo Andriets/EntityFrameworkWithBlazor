@@ -6,8 +6,9 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="ClassLibrary1\Migrations\20200423155330_initial1.cs" />
-    <Compile Remove="ClassLibrary1\Migrations\20200423155330_initial1.Designer.cs" />
+    <Compile Remove="ClassLibrary1\**" />
+    <EmbeddedResource Remove="ClassLibrary1\**" />
+    <None Remove="ClassLibrary1\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,10 +19,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClassLibrary1\Migrations\" />
   </ItemGroup>
 
 </Project>

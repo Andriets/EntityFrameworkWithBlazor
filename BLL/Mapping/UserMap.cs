@@ -4,6 +4,7 @@ using System.Text;
 using AutoMapper;
 using BLL.DTO;
 using ClassLibrary1;
+using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Mapping
 {

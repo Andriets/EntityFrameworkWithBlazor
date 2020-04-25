@@ -27,40 +27,47 @@ namespace EFWebApiV3.Controllers
         }
         #endregion
 
-        #region APIs
-        [Route("Users")]
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var models = _UserService.GetAll().ToList();
-            var list = _mapper.Map<List<User>, List<UserDTO>>(models);
-            if (list == null)
-                return NotFound("The list is empty");
-            else 
-                return Ok(list);
-        }
-
-        [Route("User/{Id}")]
-        [HttpGet]
-        public Task<User> Get(int Id)
-        {
-            return _UserService.GetById(Id);
-        }
-
         [Route("User")]
         [HttpPost]
         public void Post([FromBody]User user)
         {
-            _UserService.Insert(user);
+            _UserService.CreateAsync(user);
         }
 
-        [Route("User/{Id}")]
-        [HttpDelete]
-        public void Delete(int id)
-        {
-            _UserService.Delete(id);
-        }
+        /*        #region APIs
+                [Route("Users")]
+                [HttpGet]
+                public IActionResult Get()
+                {
+                    var models = _UserService.GetAll().ToList();
+                    var list = _mapper.Map<List<User>, List<UserDTO>>(models);
+                    if (list == null)
+                        return NotFound("The list is empty");
+                    else 
+                        return Ok(list);
+                }
 
-        #endregion
+                [Route("User/{Id}")]
+                [HttpGet]
+                public Task<User> Get(int Id)
+                {
+                    return _UserService.GetById(Id);
+                }
+
+                [Route("User")]
+                [HttpPost]
+                public void Post([FromBody]User user)
+                {
+                    _UserService.Insert(user);
+                }
+
+                [Route("User/{Id}")]
+                [HttpDelete]
+                public void Delete(int id)
+                {
+                    _UserService.Delete(id);
+                }
+
+                #endregion*/
     }
 }

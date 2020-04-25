@@ -36,12 +36,13 @@ namespace EFWebApi.V3
         {
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(UserMap));
-           /* services.AddIdentity<User, IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationContext>();*/
+
+            services.AddIdentity<User, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationContext>();
+
             #region  repositories
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<ApplicationContext>();
-            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             #endregion

@@ -17,29 +17,10 @@ namespace ClassLibrary1.Services
             UOW = unitOfWork;
         }
 
-        public void Delete(int id)
+        public async void CreateAsync(User user)
         {
-            UOW.UserRepository.Delete(id);
+            await UOW.UserManager.CreateAsync(user);
         }
 
-        public IEnumerable<User> GetAll()
-        {
-            return UOW.UserRepository.GetAll();
-        }
-
-        public Task<User> GetById(int id)
-        {
-            return UOW.UserRepository.GetById(id);
-        }
-
-        public void Insert(User obj)
-        {
-            UOW.UserRepository.Insert(obj);
-        }
-
-        public void Update(User obj)
-        {
-            UOW.UserRepository.Update(obj);
-        }
     }
 }
