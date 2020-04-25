@@ -32,7 +32,7 @@ namespace EFWebApiV3.Controllers
             var models = _OrderService.GetAll().ToList();
             var list = _mapper.Map<List<Order>, List<OrderDTO>>(models);
             if (list == null)
-                return NotFound("");
+                return NotFound("Empty");
             else
                 return Ok(list);
         }
