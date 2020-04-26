@@ -20,12 +20,14 @@ namespace ClassLibrary1.UOW
         public UnitOfWork(IOrderRepository orderRepository,
             IProductRepository productRepository,
             IProductTypeRepository productTypeRepository,
-            UserManager<User> userManager)
+            UserManager<User> userManager,
+            SignInManager<User> signInManager)
         {
             this.orderRepository = orderRepository;
             this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
             UserManager = userManager;
+            SignInManager = signInManager;
         }
 
         public IOrderRepository OrderRepository

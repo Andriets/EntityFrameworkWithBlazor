@@ -12,5 +12,6 @@ namespace ClassLibrary1.Interfaces
         IProductRepository ProductRepository { get; }
         IProductTypeRepository ProductTypeRepository { get; }
         UserManager<User> UserManager { get; }
+        SignInManager<User> SignInManager { get; }
     }
 }

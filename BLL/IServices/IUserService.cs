@@ -10,5 +10,7 @@ namespace ClassLibrary1.Interfaces.IServices
     public interface IUserService
     {
         Task<Information> CreateAsync(UserDTO user);
+        Task<Information> SignInAsync(UserDTO user);
+        void Logout();
     }
 }

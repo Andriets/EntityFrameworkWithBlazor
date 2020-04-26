@@ -46,9 +46,37 @@ namespace ClassLibrary1.Services
                 Information.Message += "The user is already registered \n";
                 Information.Success = false;
             }
+            return Information;        
+        }
 
+        public async Task<Information> SignInAsync(UserDTO userDTO)
+        {
+            User user = await UOW.UserManager.FindByEmailAsync(userDTO.Email);
+            if (user != null)
+            {
+                var res = await UOW.SignInManager.PasswordSignInAsync(user, userDTO.Password, false, false);
+                if (!res.Succeeded)
+                {
+                    Information.Message += "Failed";
+                    Information.Success = false;
+                }
+                else
+                {
+                    Information.Message += "Success";
+                }
+            }
+            else
+            {
+                Information.Success = false;
+                Information.Message += "NULL";
+            }
+            
             return Information;
-           
+        }
+
+        public void Logout()
+        {
+            UOW.SignInManager.SignOutAsync();
         }
 
     }

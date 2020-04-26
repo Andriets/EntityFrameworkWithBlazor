@@ -51,5 +51,45 @@ namespace WebApplication.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserDTO userDTO = new UserDTO()
+                {
+                    Email = model.Email,
+                    Password = model.Password
+                };
+                var result = _userService.SignInAsync(userDTO);
+
+                if (result.Result.Success)
+                {
+                    return RedirectToAction("Index", "Home");
+                    //return Ok(result.Result.Message);
+                }
+                else
+                {
+                    return NotFound(result.Result.Message);
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logout()
+        {
+            _userService.Logout();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
