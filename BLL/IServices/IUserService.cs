@@ -8,6 +8,7 @@ namespace ClassLibrary1.Interfaces.IServices
 {
     public interface IUserService
     {
-        void CreateAsync(User user);
+        //bool CreateAsync(UserDTO user);
+        Task<bool> CreateAsync(UserDTO user);
     }
 }

@@ -2,6 +2,7 @@
 using BLL.DTO;
 using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IServices;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,9 +18,19 @@ namespace ClassLibrary1.Services
             UOW = unitOfWork;
         }
 
-        public async void CreateAsync(User user)
+        public async Task<bool> CreateAsync(UserDTO userDTO)
         {
-            await UOW.UserManager.CreateAsync(user);
+            User user = new User
+            {
+                UserName = "User",
+                Email = userDTO.Email
+            };
+           
+           var result = await UOW.UserManager.CreateAsync(user, userDTO.Password);
+           
+
+            return result.Succeeded;
+           
         }
 
     }

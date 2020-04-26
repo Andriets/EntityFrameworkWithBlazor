@@ -13,15 +13,19 @@ namespace ClassLibrary1.UOW
         private readonly IProductRepository productRepository;
         private readonly IProductTypeRepository productTypeRepository;
         public UserManager<User> UserManager { get; private set; }
+        public RoleManager<IdentityRole> RoleManager { get; private set; }
+        public SignInManager<User> SignInManager { get; private set; }
 
 
         public UnitOfWork(IOrderRepository orderRepository,
             IProductRepository productRepository,
-            IProductTypeRepository productTypeRepository)
+            IProductTypeRepository productTypeRepository,
+            UserManager<User> userManager)
         {
             this.orderRepository = orderRepository;
             this.productRepository = productRepository;
             this.productTypeRepository = productTypeRepository;
+            UserManager = userManager;
         }
 
         public IOrderRepository OrderRepository

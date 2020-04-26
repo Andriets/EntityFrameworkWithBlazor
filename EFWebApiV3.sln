@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "ClassLibrary1\DAL.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{AAFCB857-6822-4338-8E09-4265AC4D9810}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFWebApi.V3", "EFWebApi.V3\EFWebApi.V3.csproj", "{20E2EEAB-A71E-4ACE-BEB5-81CFB543FFD6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{A93BE950-D452-4EA5-845A-8CEEE15B64A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{A93BE950-D452-4EA5-845A-8CEEE15B64A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{AAFCB857-6822-4338-8E09-4265AC4D9810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAFCB857-6822-4338-8E09-4265AC4D9810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAFCB857-6822-4338-8E09-4265AC4D9810}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20E2EEAB-A71E-4ACE-BEB5-81CFB543FFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20E2EEAB-A71E-4ACE-BEB5-81CFB543FFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20E2EEAB-A71E-4ACE-BEB5-81CFB543FFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20E2EEAB-A71E-4ACE-BEB5-81CFB543FFD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A93BE950-D452-4EA5-845A-8CEEE15B64A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A93BE950-D452-4EA5-845A-8CEEE15B64A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A93BE950-D452-4EA5-845A-8CEEE15B64A9}.Release|Any CPU.ActiveCfg = Release|Any CPU

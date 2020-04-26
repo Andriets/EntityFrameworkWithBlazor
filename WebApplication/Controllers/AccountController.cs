@@ -1,4 +1,6 @@
-﻿using ClassLibrary1;
+﻿using BLL.DTO;
+using ClassLibrary1;
+using ClassLibrary1.Interfaces.IServices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,12 +13,12 @@ namespace WebApplication.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
+        IUserService _userService;
         private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(IUserService userService, SignInManager<User> signInManager)
         {
-            _userManager = userManager;
+            _userService = userService;
             _signInManager = signInManager;
         }
         [HttpGet]
@@ -25,24 +27,25 @@ namespace WebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public IActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email};
-               
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                UserDTO user = new UserDTO
                 {
-                    await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    Email = model.Email,
+                    Password = model.Password
+                };
+
+                var result = _userService.CreateAsync(user);
+                if (result.Result)
+                {
+                    //await _signInManager.SignInAsync(user, false);
+                    return Ok("Peremoga");
                 }
                 else
                 {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
+                    return NotFound("Ploho");
                 }
             }
             return View(model);

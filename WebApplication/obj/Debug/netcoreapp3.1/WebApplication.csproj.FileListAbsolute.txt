@@ -163,3 +163,5 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\ne
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
