@@ -33,19 +33,20 @@ namespace WebApplication.Controllers
             {
                 UserDTO user = new UserDTO
                 {
+                    Name = model.Name,
                     Email = model.Email,
                     Password = model.Password
                 };
 
                 var result = _userService.CreateAsync(user);
-                if (result.Result)
+                if (result.Result.Success)
                 {
                     //await _signInManager.SignInAsync(user, false);
-                    return Ok("Peremoga");
+                    return Ok(result.Result.Message);
                 }
                 else
                 {
-                    return NotFound("Ploho");
+                    return NotFound(result.Result.Message);
                 }
             }
             return View(model);
