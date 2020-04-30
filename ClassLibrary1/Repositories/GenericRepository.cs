@@ -27,7 +27,7 @@ namespace ClassLibrary1.Repositories
         }
         public IEnumerable<T> GetAll()
         {
-            return table.AsEnumerable();
+            return this.context.Set<T>();
         }
 
         public async Task<T> GetById(int id)

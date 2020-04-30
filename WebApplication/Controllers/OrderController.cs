@@ -2,6 +2,7 @@
 using BLL.DTO;
 using ClassLibrary1;
 using ClassLibrary1.Interfaces.IServices;
+using DAL.Owner_Parameters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,9 @@ namespace EFWebApiV3.Controllers
         #region APIs
         [Route("Orders")]
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] PagingParameters pagingParameters)
         {
-            var models = _OrderService.GetAll().ToList();
+            var models = _OrderService.GetAll(pagingParameters).ToList();
             var list = _mapper.Map<List<Order>, List<OrderDTO>>(models);
             if (list == null)
                 return NotFound("Empty");

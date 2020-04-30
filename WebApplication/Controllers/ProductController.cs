@@ -2,6 +2,7 @@
 using BLL.DTO;
 using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces.IServices;
+using DAL.Owner_Parameters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace EFWebApiV3.Controllers
         #region APIs
         [Route("Products")]
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] PagingParameters pagingParameters)
         {
-            var models = _ProductService.GetAll().ToList();
+            var models = _ProductService.GetAll(pagingParameters).ToList();
             var list = _mapper.Map<List<Product>, List<ProductDTO>>(models);
             if (list == null)
                 return NotFound("The list of products is empty");

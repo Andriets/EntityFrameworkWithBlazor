@@ -1,6 +1,7 @@
 ﻿using ClassLibrary1.Entities;
 using ClassLibrary1.Interfaces;
 using ClassLibrary1.Interfaces.IServices;
+using DAL.Owner_Parameters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,9 +23,9 @@ namespace ClassLibrary1.Services
             UOW.ProductRepository.Delete(id);
         }
 
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Product> GetAll(PagingParameters productParameters)
         {
-            return UOW.ProductRepository.GetAll();
+            return UOW.ProductRepository.GetProducts(productParameters);
         }
 
         public Task<Product> GetById(int id)

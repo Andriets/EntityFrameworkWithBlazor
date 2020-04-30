@@ -1,4 +1,5 @@
 ﻿using ClassLibrary1.Entities;
+using DAL.Owner_Parameters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ClassLibrary1.Interfaces.IServices
 {
     public interface IProductTypeService
     {
-        IEnumerable<ProductType> GetAll();
+        IEnumerable<ProductType> GetAll(PagingParameters pagingParameters);
         Task<ProductType> GetById(int id);
         void Insert(ProductType obj);
         void Update(ProductType obj);
