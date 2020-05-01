@@ -39,6 +39,7 @@ namespace ClassLibrary1.Services
                 else
                 {
                     Information.Message += "Success";
+                    //var role = await UOW.UserManager.AddToRoleAsync(user, userDTO.Role);
                 }
             }
             else

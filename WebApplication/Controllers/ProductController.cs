@@ -36,8 +36,7 @@ namespace EFWebApiV3.Controllers
             if (list == null)
                 return NotFound("The list of products is empty");
             else
-                return Ok(list);
-            
+                return Ok(list);          
         }
 
         [Route("Product/{Id}")]

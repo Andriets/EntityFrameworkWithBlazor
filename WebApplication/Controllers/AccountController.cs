@@ -14,12 +14,10 @@ namespace WebApplication.Controllers
     public class AccountController : Controller
     {
         IUserService _userService;
-        private readonly SignInManager<User> _signInManager;
 
-        public AccountController(IUserService userService, SignInManager<User> signInManager)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
-            _signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult Register()
@@ -35,6 +33,7 @@ namespace WebApplication.Controllers
                 {
                     Name = model.Name,
                     Email = model.Email,
+                    Role = "User",
                     Password = model.Password
                 };
 

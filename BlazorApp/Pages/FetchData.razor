@@ -1,0 +1,48 @@
+﻿@page "/fetchdata"
+
+@using BlazorApp.Data
+@using Microsoft.AspNetCore.Mvc;
+@using DAL.Owner_Parameters;
+@using ClassLibrary1.Interfaces.IServices;
+@using ClassLibrary1.Entities;
+@inject IProductService productService
+@inject WeatherForecastService ForecastService
+
+<h1>Products</h1>
+
+<p>The best products in the world</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+    IEnumerable<Product> products;
+    protected override async Task OnInitializedAsync()
+    {
+        products = productService.GetAll(new PagingParameters() { PageSize = 2, PageNumber = 1 });
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}
