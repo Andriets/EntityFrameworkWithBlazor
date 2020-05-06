@@ -166,3 +166,8 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\ne
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorComponent.input.cache
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\RazorDeclaration\Views\Account\Component.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\RazorDeclaration\WebApplication.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Account\Component.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Product\Products.cshtml.g.cs

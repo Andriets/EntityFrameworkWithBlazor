@@ -174,3 +174,6 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcore
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\WebApplication.pdb
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\DAL.pdb
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\BlazorApp.MvcApplicationPartsAssemblyInfo.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Views\Account\Register.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.razor.g.cs
