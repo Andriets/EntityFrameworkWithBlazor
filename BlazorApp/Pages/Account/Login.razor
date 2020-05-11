@@ -2,6 +2,10 @@
 @using BlazorApp.Models;
 @using BLL.DTO;
 @using ClassLibrary1.Interfaces.IServices;
+@using BlazorApp.Data;
+@inject AuthenticationStateProvider AuthenticationStateProvider;
+@inject NavigationManager NavigationManager;
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject IUserService  _userService;
 <h3>Login</h3>
 
@@ -30,17 +34,19 @@
     {
         LoginViewModel = new LoginViewModel();
     }
-    public void Loginin()
+    public async Task<bool> Loginin()
     {
-        UserDTO userDTO = new UserDTO()
+        /*UserDTO userDTO = new UserDTO()
         {
             Email = LoginViewModel.Email,
             Password = LoginViewModel.Password
         };
-        var result = _userService.SignInAsync(userDTO);
-        if (result.Result.Success)
-        {
-            
-        }
+        var result = _userService.SignInAsync(userDTO);*/
+
+        ((StateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(LoginViewModel.Email);
+        NavigationManager.NavigateTo("/");
+        await sessionStorage.SetItemAsync("emailAddress", LoginViewModel.Email);
+
+        return await Task.FromResult(true);
     }
 }

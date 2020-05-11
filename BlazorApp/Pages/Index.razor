@@ -1,6 +1,11 @@
 ﻿@page "/"
 
 <h1 class="test">Hello, world!</h1>
-<a href="/Register">content</a>
-Welcome to your new app.
-<a href="/Login">content</a>
+<AuthorizeView>
+    <Authorized>
+        <p>Welcome, @context.User.Identity.Name</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are signed out!!!</p>
+    </NotAuthorized>
+</AuthorizeView>

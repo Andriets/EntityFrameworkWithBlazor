@@ -20,6 +20,8 @@ using ClassLibrary1.UOW;
 using EFWebApiV3.Controllers;
 using ClassLibrary1;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Components.Authorization;
+using Blazored.SessionStorage;
 
 namespace BlazorApp
 {
@@ -38,7 +40,9 @@ namespace BlazorApp
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+
+            services.AddScoped<AuthenticationStateProvider, StateProvider>();
+            services.AddBlazoredSessionStorage();
 
             services.AddIdentity<User, IdentityRole>()
              .AddEntityFrameworkStores<ApplicationContext>();
@@ -81,6 +85,9 @@ namespace BlazorApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

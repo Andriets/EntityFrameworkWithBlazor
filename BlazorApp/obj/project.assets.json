@@ -28,6 +28,19 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Blazored.SessionStorage/1.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.0.0",
+          "Microsoft.AspNetCore.Components.Web": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Blazored.SessionStorage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Blazored.SessionStorage.dll": {}
+        }
+      },
       "DevExpress.Blazor/19.2.4": {
         "type": "package",
         "dependencies": {
@@ -3158,6 +3171,18 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.pdb"
+      ]
+    },
+    "Blazored.SessionStorage/1.0.11": {
+      "sha512": "qy2Erz2TtzHEYKRnnucLLzJA2Lt6myF3hZ5MAMUbLolE4ukKTJx1+OtxMrT70UA9PKtPThxtsGs2G4I11igi1w==",
+      "type": "package",
+      "path": "blazored.sessionstorage/1.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.sessionstorage.1.0.11.nupkg.sha512",
+        "blazored.sessionstorage.nuspec",
+        "lib/netstandard2.0/Blazored.SessionStorage.dll"
       ]
     },
     "DevExpress.Blazor/19.2.4": {
@@ -9605,6 +9630,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "BLL >= 1.0.0",
+      "Blazored.SessionStorage >= 1.0.11",
       "DAL >= 1.0.0",
       "DevExpress.Blazor >= 19.2.4",
       "MatBlazor >= 2.4.3",
@@ -9663,6 +9689,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Blazored.SessionStorage": {
+            "target": "Package",
+            "version": "[1.0.11, )"
+          },
           "DevExpress.Blazor": {
             "target": "Package",
             "version": "[19.2.4, )"
