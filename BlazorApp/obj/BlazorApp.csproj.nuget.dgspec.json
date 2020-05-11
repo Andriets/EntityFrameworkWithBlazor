@@ -25,7 +25,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/UigXcXqzwNZbtjjur9iOcrKWgBWNsSiPyS2Z3qUnxBRLcXgtqc/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -50,6 +51,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "DevExpress.Blazor": {
+              "target": "Package",
+              "version": "[19.2.4, )"
+            },
+            "MatBlazor": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -93,7 +104,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/UigXcXqzwNZbtjjur9iOcrKWgBWNsSiPyS2Z3qUnxBRLcXgtqc/api": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -166,7 +178,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/UigXcXqzwNZbtjjur9iOcrKWgBWNsSiPyS2Z3qUnxBRLcXgtqc/api": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -245,7 +258,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/UigXcXqzwNZbtjjur9iOcrKWgBWNsSiPyS2Z3qUnxBRLcXgtqc/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

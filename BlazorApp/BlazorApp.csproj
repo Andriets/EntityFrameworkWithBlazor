@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Blazor" Version="19.2.4" />
+    <PackageReference Include="MatBlazor" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
     <ProjectReference Include="..\ClassLibrary1\DAL.csproj" />
     <ProjectReference Include="..\WebApplication\WebApplication.csproj" />

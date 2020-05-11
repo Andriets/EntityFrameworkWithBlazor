@@ -1,0 +1,62 @@
+﻿@page "/Register"
+@using BlazorApp.Models;
+@using BLL.DTO;
+@using ClassLibrary1.Interfaces.IServices;
+@inject IUserService  _userService;
+<h2>Регистрация нового пользователя</h2>
+
+<EditForm Model="@RegisterViewModel" OnValidSubmit="Create">
+    <DataAnnotationsValidator />
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <p>
+            <MatTextField Label="Username" @bind-Value="RegisterViewModel.Name" />
+            <ValidationMessage For="@(() => RegisterViewModel.Name)" />
+        </p>
+        <p>
+            <MatTextField Label="Email" @bind-Value="RegisterViewModel.Email" />
+            <ValidationMessage For="@(() => RegisterViewModel.Email)" />
+        </p>
+        <p>
+            <MatTextField Label="Password" @bind-Value="RegisterViewModel.Password" Type="password" />
+            <ValidationMessage For="@(() => RegisterViewModel.Password)" />
+        </p>
+        <p>
+            <MatTextField Label="PasswordConfirm" @bind-Value="RegisterViewModel.PasswordConfirm" Type="password" />
+            <ValidationMessage For="@(() => RegisterViewModel.PasswordConfirm)" />
+        </p>
+ 
+    </div>
+
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <MatButton Type="submit" Raised="true" >Register</MatButton>
+    </div>
+</EditForm>
+
+@code {
+    public RegisterViewModel RegisterViewModel { get; set; }
+    protected override void OnInitialized()
+    {
+        RegisterViewModel = new RegisterViewModel();
+    }
+    protected void Create()
+    {
+
+        UserDTO user = new UserDTO
+        {
+            Name = RegisterViewModel.Name,
+            Email = RegisterViewModel.Email,
+            Role = "User",
+            Password = RegisterViewModel.Password
+        };
+
+        var result = _userService.CreateAsync(user);
+        if (result.Result.Success)
+        {
+            RegisterViewModel.Name = null;
+            RegisterViewModel.Email = null;
+            RegisterViewModel.Password = null;
+            RegisterViewModel.PasswordConfirm = null;
+        }
+        RegisterViewModel = new RegisterViewModel();
+    }
+}

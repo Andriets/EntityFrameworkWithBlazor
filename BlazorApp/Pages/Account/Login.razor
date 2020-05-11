@@ -1,0 +1,46 @@
+﻿@page  "/Login"
+@using BlazorApp.Models;
+@using BLL.DTO;
+@using ClassLibrary1.Interfaces.IServices;
+@inject IUserService  _userService;
+<h3>Login</h3>
+
+<EditForm Model="@LoginViewModel" OnValidSubmit="Loginin">
+    <DataAnnotationsValidator />
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <p>
+            <MatTextField Label="Emain" @bind-Value="LoginViewModel.Email" />
+            <ValidationMessage For="@(() => LoginViewModel.Email)" />
+        </p>
+        <p>
+            <MatTextField Label="Password" @bind-Value="LoginViewModel.Password" Type="password" />
+            <ValidationMessage For="@(() => LoginViewModel.Password)" />
+        </p>
+
+    </div>
+
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <MatButton Type="submit" Raised="true">Login</MatButton>
+    </div>
+</EditForm>
+
+@code {
+    public LoginViewModel LoginViewModel { get; set; }
+    protected override void OnInitialized()
+    {
+        LoginViewModel = new LoginViewModel();
+    }
+    public void Loginin()
+    {
+        UserDTO userDTO = new UserDTO()
+        {
+            Email = LoginViewModel.Email,
+            Password = LoginViewModel.Password
+        };
+        var result = _userService.SignInAsync(userDTO);
+        if (result.Result.Success)
+        {
+            
+        }
+    }
+}

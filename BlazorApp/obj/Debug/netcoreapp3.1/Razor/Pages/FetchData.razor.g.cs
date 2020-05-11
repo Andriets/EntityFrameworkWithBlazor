@@ -73,6 +73,13 @@ using BlazorApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 10 "D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\Pages\FetchData.razor"
 using BlazorApp.Data;
 
