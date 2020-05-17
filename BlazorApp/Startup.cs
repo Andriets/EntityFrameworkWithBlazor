@@ -65,6 +65,11 @@ namespace BlazorApp
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
+            services.AddHttpClient<Services.ProductService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5001");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
