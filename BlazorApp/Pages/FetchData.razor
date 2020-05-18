@@ -6,6 +6,7 @@
 @using ClassLibrary1.Interfaces.IServices;
 @using ClassLibrary1.Entities;
 @using BlazorApp.Services;
+@using BlazorApp.Models;
 @using BLL.DTO;
 @inject ProductService productService
 
@@ -30,37 +31,36 @@ else
             @foreach (var product in products)
             {
                 <tr>
-                    <td>@product.ProductName</td>
-                    <td>@product.Price</td>
+                    <td>@product.productName</td>
+                    <td>@product.price</td>
                 </tr>
             }
         </tbody>
     </table>
-    @*<button @onclick="PrevPage">Prev</button>
-        <span>@pageNum</span>
-        <button @onclick="NextPage">Next</button>*@
+    <button @onclick="PrevPage">Prev</button>
+    <span>@pageNum</span>
+    <button @onclick="NextPage">Next</button>
 }
 
 @code {
-    List<ProductDTO> products;
+    List<ProductView> products;
     private int pageNum = 1;
     private int pageSize = 2;
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        //products = productService.GetAll(new PagingParameters() { PageSize = pageSize, PageNumber = pageNum });
-        products = productService.GetAll().Result;
+        products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
     }
-    /* public void NextPage()
-     {
-         pageNum++;
-         products = productService.GetAll(new PagingParameters() { PageSize = pageSize, PageNumber = pageNum });
-     }
-     public void PrevPage()
-     {
-         if (pageNum > 1)
-         {
-             pageNum--;
-             products = productService.GetAll(new PagingParameters() { PageSize = pageSize, PageNumber = pageNum });
-         }
-     }*/
+    public async Task NextPage()
+    {
+        pageNum++;
+        products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+    }
+    public async Task PrevPage()
+    {
+        if (pageNum > 1)
+        {
+            pageNum--;
+            products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        }
+    }
 }

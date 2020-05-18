@@ -1,4 +1,6 @@
-﻿using BLL.DTO;
+﻿using BlazorApp.Models;
+using BLL.DTO;
+using DAL.Owner_Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +19,13 @@ namespace BlazorApp.Services
             _httpClient = client;
         }
 
-        public async Task<List<ProductDTO>> GetAll()
+        public async Task<List<ProductView>> GetAll(PagingParameters p)
         {
-            var res = _httpClient.GetAsync("api/product");
-            res.Result.EnsureSuccessStatusCode();
+            var res = await _httpClient.GetAsync($"api/product?pageNumber={p.PageNumber}&pageSize={p.PageSize}");
+            res.EnsureSuccessStatusCode();
 
-            var responseContent =  res.Result.Content.ReadAsStreamAsync();
-            return  await JsonSerializer.DeserializeAsync<List<ProductDTO>>(responseContent.Result);
+            using var responseContent = await res.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<List<ProductView>>(responseContent);
         }
     }
 }
