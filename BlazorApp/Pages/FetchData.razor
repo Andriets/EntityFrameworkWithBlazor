@@ -14,6 +14,18 @@
 
 <p>The best products in the world</p>
 
+<MatRadioGroup @bind-Value="@Val3" Items="@Val3Items">
+    <ItemTemplate>
+        <div>
+            <MatRadioButton Value="@context">@context</MatRadioButton>
+        </div>
+    </ItemTemplate>
+</MatRadioGroup>
+<div class="col-2">
+    <p>Price to: @PriceTo</p>
+    <MatSlider @bind-Value="@PriceTo" ValueMin="0" ValueMax="30000" Discrete="true"></MatSlider>
+</div>
+<button @onclick="Search">Search</button>
 @if (products == null)
 {
     <p><em>Loading...</em></p>
@@ -43,24 +55,71 @@ else
 }
 
 @code {
+
+    protected string Val3;
+
+    protected string[] Val3Items =
+    {
+          "Window",
+          "Door",
+          "Other"
+    };
+
+    public decimal PriceTo
+    {
+        get => priceTo;
+        set
+        {
+            priceTo = value;
+            this.StateHasChanged();
+        }
+    }
+
+    private decimal priceTo = 0;
+
     List<ProductView> products;
+    List<ProductView> Searchproducts;
     private int pageNum = 1;
     private int pageSize = 2;
     protected override async Task OnInitializedAsync()
     {
-        products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        PagingParameters p = new PagingParameters
+        {
+            PageNumber = pageNum,
+            PageSize = pageSize
+        };
+        products = await productService.GetAll(p);
     }
     public async Task NextPage()
     {
         pageNum++;
-        products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        if (Searchproducts != null)
+        {
+            await this.Search();
+        }
+        else
+        {
+            products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+        }
     }
     public async Task PrevPage()
     {
         if (pageNum > 1)
         {
             pageNum--;
-            products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+            if (Searchproducts != null)
+            {
+                await this.Search();
+            }
+            else
+            {
+                products = await productService.GetAll(new PagingParameters { PageNumber = pageNum, PageSize = pageSize });
+            }
         }
+    }
+    public async Task Search()
+    {
+        Searchproducts = await productService.GetByFilter(new PagingParameters { PageNumber = pageNum, PageSize = pageSize, Price = decimal.ToDouble(PriceTo), Type = Val3 });
+        products = Searchproducts;
     }
 }

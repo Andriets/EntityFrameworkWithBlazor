@@ -36,7 +36,7 @@ namespace EFWebApiV3.Controllers
             return View();
         }*/
 
-       // [Route("Products")]
+        [Route("Products")]
         [HttpGet]
         public ActionResult<List<ProductDTO>> Products([FromQuery] PagingParameters pagingParameters)
         {
@@ -48,6 +48,20 @@ namespace EFWebApiV3.Controllers
             else
                 return View(list);*/
                // return Ok(list);
+        }
+
+        [Route("Search")]
+        [HttpGet]
+        public ActionResult<List<ProductDTO>> ProductsFilter([FromQuery] PagingParameters pagingParameters)
+        {
+            var models = _ProductService.GetByFilter(pagingParameters).ToList();
+            var list = _mapper.Map<List<Product>, List<ProductDTO>>(models);
+            return list;
+            /* if (list == null)
+                 return NotFound("The list of products is empty");
+             else
+                 return View(list);*/
+            // return Ok(list);
         }
 
         [Route("Product/{Id}")]

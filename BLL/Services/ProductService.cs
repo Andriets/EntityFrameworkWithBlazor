@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace ClassLibrary1.Services
 {
@@ -27,6 +28,29 @@ namespace ClassLibrary1.Services
         {
             return UOW.ProductRepository.GetProducts(productParameters);
         }
+        
+        public IEnumerable<Product> GetByFilter(PagingParameters productParameters)
+        {
+            var productlist = UOW.ProductRepository.GetByFilter(productParameters).ToList();
+            var typelist = UOW.ProductTypeRepository.GetAll().ToList();
+            var res = from pl in productlist
+                      join tl in typelist on pl.ProductTypeId equals tl.Id
+                      where tl.TypeName == productParameters.Type
+                      select new { Name = pl.ProductName, Price = pl.Price, ProdType = tl.Id };
+            List<Product> list = new List<Product>();
+            foreach(var item in res)
+            {
+                Product p = new Product
+                {
+                    ProductName = item.Name,
+                    Price = item.Price
+                };
+                list.Add(p);
+            }
+            return list;
+        }
+
+
 
         public Task<Product> GetById(int id)
         {

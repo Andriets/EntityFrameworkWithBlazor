@@ -21,7 +21,16 @@ namespace BlazorApp.Services
 
         public async Task<List<ProductView>> GetAll(PagingParameters p)
         {
-            var res = await _httpClient.GetAsync($"api/product?pageNumber={p.PageNumber}&pageSize={p.PageSize}");
+            var res = await _httpClient.GetAsync($"api/product/Products?pageNumber={p.PageNumber}&pageSize={p.PageSize}");
+            res.EnsureSuccessStatusCode();
+
+            using var responseContent = await res.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<List<ProductView>>(responseContent);
+        }
+
+        public async Task<List<ProductView>> GetByFilter(PagingParameters p)
+        {
+            var res = await _httpClient.GetAsync($"api/product/Search?pageNumber={p.PageNumber}&pageSize={p.PageSize}&price={p.Price}&type={p.Type}");
             res.EnsureSuccessStatusCode();
 
             using var responseContent = await res.Content.ReadAsStreamAsync();

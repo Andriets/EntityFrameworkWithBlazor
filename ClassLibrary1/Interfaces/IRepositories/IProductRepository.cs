@@ -9,5 +9,6 @@ namespace ClassLibrary1.Interfaces.IRepositories
     public interface IProductRepository : IGenericRepository<Product>
     {
         IEnumerable<Product> GetProducts(PagingParameters productParameters);
+        IEnumerable<Product> GetByFilter(PagingParameters pagingParameters);
     }
 }

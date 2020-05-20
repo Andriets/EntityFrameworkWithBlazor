@@ -19,5 +19,10 @@ namespace ClassLibrary1.Repositories
                 .Take(pagingParameters.PageSize)
                 .ToList();
         }
+
+        public IEnumerable<Product> GetByFilter(PagingParameters pagingParameters)
+        {
+            return this.GetProducts(pagingParameters).Where(u => u.Price <= pagingParameters.Price);
+        }
     }
 }
