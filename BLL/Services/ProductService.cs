@@ -26,7 +26,10 @@ namespace ClassLibrary1.Services
 
         public IEnumerable<Product> GetAll(PagingParameters productParameters)
         {
-            return UOW.ProductRepository.GetProducts(productParameters);
+            var list = UOW.ProductRepository.GetProducts(productParameters);
+            return list.Skip((productParameters.PageNumber - 1) * productParameters.PageSize)
+                .Take(productParameters.PageSize)
+                .ToList();
         }
         
         public IEnumerable<Product> GetByFilter(PagingParameters productParameters)
@@ -47,7 +50,10 @@ namespace ClassLibrary1.Services
                 };
                 list.Add(p);
             }
-            return list;
+            var reslist = list.Skip((productParameters.PageNumber - 1) * productParameters.PageSize)
+                .Take(productParameters.PageSize)
+                .ToList();
+            return reslist;
         }
 
 

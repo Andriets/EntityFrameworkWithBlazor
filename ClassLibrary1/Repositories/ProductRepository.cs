@@ -15,9 +15,9 @@ namespace ClassLibrary1.Repositories
 
         public IEnumerable<Product> GetProducts(PagingParameters pagingParameters)
         {
-            return GetAll().Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+            return GetAll()/*.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
                 .Take(pagingParameters.PageSize)
-                .ToList();
+                .ToList()*/;
         }
 
         public IEnumerable<Product> GetByFilter(PagingParameters pagingParameters)
