@@ -1,12 +1,11 @@
 ﻿@page  "/Login"
 @using BlazorApp.Models;
-@using BLL.DTO;
-@using ClassLibrary1.Interfaces.IServices;
+@using BlazorApp.Services;
 @using BlazorApp.Data;
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 @inject NavigationManager NavigationManager;
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
-@inject IUserService  _userService;
+@inject AccountService _accountService;
 <h3>Login</h3>
 
 <EditForm Model="@LoginViewModel" OnValidSubmit="Loginin">
@@ -26,26 +25,34 @@
     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
         <MatButton Type="submit" Raised="true">Login</MatButton>
     </div>
+    <div class="col-12 row" style="text-align:left; font-weight:bold">
+        <span class="col-12">@LoginMesssage</span>
+    </div>
 </EditForm>
+
 
 @code {
     public LoginViewModel LoginViewModel { get; set; }
+    public string LoginMesssage { get; set; }
     protected override void OnInitialized()
     {
         LoginViewModel = new LoginViewModel();
     }
     public async Task<bool> Loginin()
     {
-        /*UserDTO userDTO = new UserDTO()
-        {
-            Email = LoginViewModel.Email,
-            Password = LoginViewModel.Password
-        };
-        var result = _userService.SignInAsync(userDTO);*/
 
-        ((StateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(LoginViewModel.Email);
-        NavigationManager.NavigateTo("/");
-        await sessionStorage.SetItemAsync("emailAddress", LoginViewModel.Email);
+        var res = _accountService.Login(LoginViewModel);
+        if (res.Result == "true")
+        {
+            ((StateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(LoginViewModel.Email);
+            NavigationManager.NavigateTo("/");
+            await sessionStorage.SetItemAsync("emailAddress", LoginViewModel.Email);
+        }
+        else
+        {
+            LoginMesssage = "Invalid username or password";
+        }
+        LoginViewModel = new LoginViewModel();
 
         return await Task.FromResult(true);
     }

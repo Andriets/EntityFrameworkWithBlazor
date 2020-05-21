@@ -1,8 +1,15 @@
 ﻿@page "/Register"
+@using BlazorApp.Data
+@using Microsoft.AspNetCore.Mvc;
+@using DAL.Owner_Parameters;
+@using ClassLibrary1.Interfaces.IServices;
+@using ClassLibrary1.Entities;
+@using BlazorApp.Services;
 @using BlazorApp.Models;
 @using BLL.DTO;
-@using ClassLibrary1.Interfaces.IServices;
-@inject IUserService  _userService;
+@using System.Text.Json;
+@inject AccountService _accountService
+@inject NavigationManager NavigationManager;
 <h2>Регистрация нового пользователя</h2>
 
 <EditForm Model="@RegisterViewModel" OnValidSubmit="Create">
@@ -24,39 +31,27 @@
             <MatTextField Label="PasswordConfirm" @bind-Value="RegisterViewModel.PasswordConfirm" Type="password" />
             <ValidationMessage For="@(() => RegisterViewModel.PasswordConfirm)" />
         </p>
- 
+
     </div>
 
     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-        <MatButton Type="submit" Raised="true" >Register</MatButton>
+        <MatButton Type="submit" Raised="true">Register</MatButton>
     </div>
+    <p>@Succes</p>
 </EditForm>
 
 @code {
     public RegisterViewModel RegisterViewModel { get; set; }
+    public string Succes;
     protected override void OnInitialized()
     {
         RegisterViewModel = new RegisterViewModel();
     }
     protected void Create()
     {
+        var res = _accountService.Register(RegisterViewModel);
 
-        UserDTO user = new UserDTO
-        {
-            Name = RegisterViewModel.Name,
-            Email = RegisterViewModel.Email,
-            Role = "User",
-            Password = RegisterViewModel.Password
-        };
-
-        var result = _userService.CreateAsync(user);
-        if (result.Result.Success)
-        {
-            RegisterViewModel.Name = null;
-            RegisterViewModel.Email = null;
-            RegisterViewModel.Password = null;
-            RegisterViewModel.PasswordConfirm = null;
-        }
         RegisterViewModel = new RegisterViewModel();
+        NavigationManager.NavigateTo("/Login");
     }
 }

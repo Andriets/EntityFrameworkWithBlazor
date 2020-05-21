@@ -38,8 +38,11 @@ namespace ClassLibrary1.Services
             var typelist = UOW.ProductTypeRepository.GetAll().ToList();
             var res = from pl in productlist
                       join tl in typelist on pl.ProductTypeId equals tl.Id
-                      where tl.TypeName == productParameters.Type
-                      select new { Name = pl.ProductName, Price = pl.Price, ProdType = tl.Id };
+                      select new { Name = pl.ProductName, Price = pl.Price, ProdType = tl.TypeName };
+            if (productParameters.Type != "Both")
+            {
+                res = res.Where(u => u.ProdType == productParameters.Type);
+            }
             List<Product> list = new List<Product>();
             foreach(var item in res)
             {

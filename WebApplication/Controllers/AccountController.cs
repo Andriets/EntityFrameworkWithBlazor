@@ -11,6 +11,8 @@ using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AccountController : Controller
     {
         IUserService _userService;
@@ -24,31 +26,20 @@ namespace WebApplication.Controllers
         {
             return View();
         }
+        [Route("register")]
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
+        public IActionResult Register([FromBody] UserDTO model)
         {
-            if (ModelState.IsValid)
+            var result = _userService.CreateAsync(model);
+            if (result.Result.Success)
             {
-                UserDTO user = new UserDTO
-                {
-                    Name = model.Name,
-                    Email = model.Email,
-                    Role = "User",
-                    Password = model.Password
-                };
-
-                var result = _userService.CreateAsync(user);
-                if (result.Result.Success)
-                {
-                    //await _signInManager.SignInAsync(user, false);
-                    return Ok(result.Result.Message);
-                }
-                else
-                {
-                    return NotFound(result.Result.Message);
-                }
+                //await _signInManager.SignInAsync(user, false);
+                return Ok(result.Result.Success);
             }
-            return View(model);
+            else
+            {
+                return NotFound(result.Result.Success);
+            }
         }
 
         [HttpGet]
@@ -57,30 +48,21 @@ namespace WebApplication.Controllers
             return View();
         }
 
+        [Route("login")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Login(LoginViewModel model)
+        public IActionResult Login([FromBody] UserDTO model)
         {
-            if (ModelState.IsValid)
-            {
-                UserDTO userDTO = new UserDTO()
-                {
-                    Email = model.Email,
-                    Password = model.Password
-                };
-                var result = _userService.SignInAsync(userDTO);
+                var result = _userService.SignInAsync(model);
 
                 if (result.Result.Success)
                 {
-                    return RedirectToAction("Index", "Home");
-                    //return Ok(result.Result.Message);
+                    //return RedirectToAction("Index", "Home");
+                    return Ok(result.Result.Success);
                 }
                 else
                 {
                     return NotFound(result.Result.Message);
                 }
-            }
-            return View(model);
         }
 
         [HttpPost]
