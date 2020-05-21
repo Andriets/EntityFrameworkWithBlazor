@@ -47,11 +47,19 @@
     {
         RegisterViewModel = new RegisterViewModel();
     }
-    protected void Create()
+    protected async Task Create()
     {
-        var res = _accountService.Register(RegisterViewModel);
+        var res = await _accountService.Register(RegisterViewModel);
+        if (res == "true")
+        {
+            NavigationManager.NavigateTo("/Login");
+        }
+        else
+        {
+            RegisterViewModel = new RegisterViewModel();
+            Succes = "Error";
+        }
 
-        RegisterViewModel = new RegisterViewModel();
-        NavigationManager.NavigateTo("/Login");
+        
     }
 }

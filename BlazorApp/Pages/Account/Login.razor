@@ -41,8 +41,8 @@
     public async Task<bool> Loginin()
     {
 
-        var res = _accountService.Login(LoginViewModel);
-        if (res.Result == "true")
+        var res = await _accountService.Login(LoginViewModel);
+        if (res == "true")
         {
             ((StateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(LoginViewModel.Email);
             NavigationManager.NavigateTo("/");

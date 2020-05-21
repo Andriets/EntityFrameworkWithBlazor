@@ -28,17 +28,18 @@ namespace WebApplication.Controllers
         }
         [Route("register")]
         [HttpPost]
-        public IActionResult Register([FromBody] UserDTO model)
+        public async Task<IActionResult> Register([FromBody] UserDTO model)
         {
-            var result = _userService.CreateAsync(model);
-            if (result.Result.Success)
+            var result = await _userService.CreateAsync(model);
+
+            if (result.Success)
             {
                 //await _signInManager.SignInAsync(user, false);
-                return Ok(result.Result.Success);
+                return Ok(result.Success);
             }
             else
             {
-                return NotFound(result.Result.Success);
+                return NotFound(result.Success);
             }
         }
 
@@ -50,18 +51,18 @@ namespace WebApplication.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login([FromBody] UserDTO model)
+        public async Task<IActionResult> Login([FromBody] UserDTO model)
         {
-                var result = _userService.SignInAsync(model);
+                var result = await _userService.SignInAsync(model);
 
-                if (result.Result.Success)
+                if (result.Success)
                 {
                     //return RedirectToAction("Index", "Home");
-                    return Ok(result.Result.Success);
+                    return Ok(result.Success);
                 }
                 else
                 {
-                    return NotFound(result.Result.Message);
+                    return NotFound(result.Message);
                 }
         }
 
