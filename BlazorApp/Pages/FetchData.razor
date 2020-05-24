@@ -9,56 +9,63 @@
 @using BlazorApp.Models;
 @using BLL.DTO;
 @inject ProductService productService
+    <AuthorizeView>
+        <Authorized>
+            <h1>Products</h1>
 
-<h1>Products</h1>
+            <p>The best products in the world</p>
 
-<p>The best products in the world</p>
-
-<MatRadioGroup @bind-Value="@Val3" Items="@Val3Items">
-    <ItemTemplate>
-        <div>
-            <MatRadioButton Value="@context">@context</MatRadioButton>
-        </div>
-    </ItemTemplate>
-</MatRadioGroup>
-<div class="col-2">
-    <p>Price to: @PriceTo</p>
-    <MatSlider @bind-Value="@PriceTo" ValueMin="0" ValueMax="30000" Discrete="true"></MatSlider>
-</div>
-<button @onclick="Search">Search</button>
-@if (products == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product name</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in products)
+            <MatRadioGroup @bind-Value="@Type" Items="@Types">
+                @*<ItemTemplate>
+                    <div>
+                        <MatRadioButton Value="@context">@context</MatRadioButton>
+                    </div>
+                </ItemTemplate>*@
+            </MatRadioGroup>
+            <div class="col-2">
+                <p>Price to: @PriceTo</p>
+                <MatSlider @bind-Value="@PriceTo" ValueMin="0" ValueMax="30000" Discrete="true"></MatSlider>
+            </div>
+            <button @onclick="Search">Search</button>
+            @if (products == null)
             {
-                <tr>
-                    <td>@product.productName</td>
-                    <td>@product.price</td>
-                </tr>
+                <p><em>Loading...</em></p>
             }
-        </tbody>
-    </table>
-    <button @onclick="PrevPage">Prev</button>
-    <span>@pageNum</span>
-    <button @onclick="NextPage">Next</button>
-}
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in products)
+                        {
+                            <tr>
+                                <td>@product.productName</td>
+                                <td>@product.price</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button @onclick="PrevPage">Prev</button>
+                <span>@pageNum</span>
+                <button @onclick="NextPage">Next</button>
+            }
+        </Authorized>
+        <NotAuthorized>
+            <p>You are signed out!!!</p>
+        </NotAuthorized>
+    </AuthorizeView>
+
 
 @code {
 
-    protected string Val3;
+    protected string? Type;
 
-    protected string[] Val3Items =
+    protected string[] Types =
     {
           "Window",
           "Door",
@@ -119,7 +126,14 @@ else
     }
     public async Task Search()
     {
-        Searchproducts = await productService.GetByFilter(new PagingParameters { PageNumber = pageNum, PageSize = pageSize, Price = decimal.ToDouble(PriceTo), Type = Val3 });
+        PagingParameters p = new PagingParameters
+        {
+            PageNumber = pageNum,
+            PageSize = pageSize,
+            Type = Type ?? "Both",
+            Price = decimal.ToDouble(priceTo) == 0 ? 30000 : decimal.ToDouble(priceTo)
+        };
+        Searchproducts = await productService.GetByFilter(p);
         products = Searchproducts;
     }
 }

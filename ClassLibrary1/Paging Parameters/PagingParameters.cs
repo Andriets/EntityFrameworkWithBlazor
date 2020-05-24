@@ -8,6 +8,7 @@ namespace DAL.Owner_Parameters
     {
         public string Type { get; set; }
         public double Price { get; set; }
+
         const int maxPageSize = 10;
         public int PageNumber { get; set; } = 1;
         private int _pageSize = 2;

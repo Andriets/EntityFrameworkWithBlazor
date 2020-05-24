@@ -15,14 +15,31 @@ namespace ClassLibrary1.Repositories
 
         public IEnumerable<Product> GetProducts(PagingParameters pagingParameters)
         {
-            return GetAll()/*.Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+            return GetAll().Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
                 .Take(pagingParameters.PageSize)
-                .ToList()*/;
+                .ToList();
         }
 
         public IEnumerable<Product> GetByFilter(PagingParameters pagingParameters)
         {
-            return this.GetProducts(pagingParameters).Where(u => u.Price <= pagingParameters.Price);
+            if (pagingParameters.Type != "Both")
+            {
+                int i = pagingParameters.Type == "Window" ? 1 : 2;
+
+                return GetAll().Where(u => u.Price <= pagingParameters.Price)
+                    .Where(o => o.ProductTypeId == i)
+                    .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                    .Take(pagingParameters.PageSize)
+                    .ToList();
+            }
+            else
+            {
+                return GetAll().Where(u => u.Price <= pagingParameters.Price)
+                    .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+                    .Take(pagingParameters.PageSize)
+                    .ToList();
+            }
+
         }
     }
 }
