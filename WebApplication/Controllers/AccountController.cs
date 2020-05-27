@@ -57,12 +57,11 @@ namespace WebApplication.Controllers
 
                 if (result.Success)
                 {
-                    //return RedirectToAction("Index", "Home");
-                    return Ok(result.Success);
+                    return Ok(result);
                 }
                 else
                 {
-                    return NotFound(result.Message);
+                    return BadRequest(result);
                 }
         }
 

@@ -189,3 +189,10 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcore
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
