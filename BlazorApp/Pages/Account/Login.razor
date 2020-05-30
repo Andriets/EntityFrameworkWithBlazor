@@ -9,10 +9,11 @@
 <h3>Login</h3>
 
 <EditForm Model="@LoginViewModel" OnValidSubmit="Loginin">
+    <FluentValidator></FluentValidator>
     <DataAnnotationsValidator />
     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
         <p>
-            <MatTextField Label="Emain" @bind-Value="LoginViewModel.Email" />
+            <MatTextField Label="Email" @bind-Value="LoginViewModel.Email" />
             <ValidationMessage For="@(() => LoginViewModel.Email)" />
         </p>
         <p>
@@ -42,7 +43,7 @@
     {
 
         var res = await _accountService.Login(LoginViewModel);
-        if (res == "true")
+        if (res.Success)
         {
             ((StateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(LoginViewModel.Email);
             NavigationManager.NavigateTo("/");
@@ -50,7 +51,7 @@
         }
         else
         {
-            LoginMesssage = "Invalid username or password";
+            LoginMesssage = res.Message;
         }
         LoginViewModel = new LoginViewModel();
 

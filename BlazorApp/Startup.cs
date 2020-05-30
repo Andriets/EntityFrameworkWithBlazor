@@ -22,6 +22,8 @@ using ClassLibrary1;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.SessionStorage;
+using BlazorApp.Validation;
+using FluentValidation;
 
 namespace BlazorApp
 {
@@ -64,6 +66,7 @@ namespace BlazorApp
             #endregion
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddValidatorsFromAssemblyContaining<RegisterViewModelValidator>();
 
             services.AddHttpClient<Services.ProductService>(client =>
             {

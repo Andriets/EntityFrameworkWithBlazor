@@ -1,18 +1,12 @@
 ﻿@page "/Register"
-@using BlazorApp.Data
-@using Microsoft.AspNetCore.Mvc;
-@using DAL.Owner_Parameters;
-@using ClassLibrary1.Interfaces.IServices;
-@using ClassLibrary1.Entities;
 @using BlazorApp.Services;
 @using BlazorApp.Models;
-@using BLL.DTO;
-@using System.Text.Json;
 @inject AccountService _accountService
 @inject NavigationManager NavigationManager;
 <h2>Регистрация нового пользователя</h2>
 
 <EditForm Model="@RegisterViewModel" OnValidSubmit="Create">
+    <FluentValidator></FluentValidator>
     <DataAnnotationsValidator />
     <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
         <p>
@@ -50,16 +44,14 @@
     protected async Task Create()
     {
         var res = await _accountService.Register(RegisterViewModel);
-        if (res == "true")
+        if (res.Success)
         {
             NavigationManager.NavigateTo("/Login");
         }
         else
         {
             RegisterViewModel = new RegisterViewModel();
-            Succes = "Error";
+            Succes = res.Message;
         }
-
-        
     }
 }

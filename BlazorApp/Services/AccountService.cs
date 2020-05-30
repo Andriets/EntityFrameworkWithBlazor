@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using BLL.DTO;
 using System.Text;
 using DAL.Owner_Parameters;
 using System.Text.Json;
+using BLL;
 
 namespace BlazorApp.Services
 {
@@ -22,7 +23,7 @@ namespace BlazorApp.Services
             _httpClient = client;
         }
 
-        public async Task<string> Login(LoginViewModel model)
+        public async Task<Information> Login(LoginViewModel model)
         {
             UserDTO user = new UserDTO
             {
@@ -30,15 +31,16 @@ namespace BlazorApp.Services
                 Role = "User",
                 Password = model.Password
             };
-            var json = JsonConvert.SerializeObject(user);
+            var json = JsonSerializer.Serialize(user);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.PostAsync("api/account/login", data);
-            var ret = response.Content.ReadAsStringAsync().Result;
-            return ret;
+            using var responseContent = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<Information>(responseContent);
+            
         }
 
-        public async Task<string> Register(RegisterViewModel model)
+        public async Task<Information> Register(RegisterViewModel model)
         {
             UserDTO user = new UserDTO
             {
@@ -47,11 +49,12 @@ namespace BlazorApp.Services
                 Role = "User",
                 Password = model.Password
             };
-            var json = JsonConvert.SerializeObject(user);
+            var json = JsonSerializer.Serialize(user);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.PostAsync("api/account/register", data);
-            return response.Content.ReadAsStringAsync().Result;
+            using var responseContent = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<Information>(responseContent);
         }
     }
 }

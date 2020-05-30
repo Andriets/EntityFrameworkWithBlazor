@@ -21,11 +21,6 @@ namespace WebApplication.Controllers
         {
             _userService = userService;
         }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
         [Route("register")]
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] UserDTO model)
@@ -35,18 +30,12 @@ namespace WebApplication.Controllers
             if (result.Success)
             {
                 //await _signInManager.SignInAsync(user, false);
-                return Ok(result.Success);
+                return Ok(result);
             }
             else
             {
-                return NotFound(result.Success);
+                return NotFound(result);
             }
-        }
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
         }
 
         [Route("login")]

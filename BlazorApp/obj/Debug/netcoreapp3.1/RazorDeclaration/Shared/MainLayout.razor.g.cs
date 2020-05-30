@@ -84,6 +84,13 @@ using MatBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\_Imports.razor"
+using BlazorApp.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\Shared\MainLayout.razor"
 using BlazorApp.Data;
 
