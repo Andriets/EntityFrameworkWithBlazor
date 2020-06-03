@@ -64,7 +64,7 @@ namespace EFWebApiV3.Controllers
             // return Ok(list);
         }
 
-        [Route("Product/{Id}")]
+        [Route("Info/{Id}")]
         [HttpGet]
         public IActionResult Get(int Id)
         {

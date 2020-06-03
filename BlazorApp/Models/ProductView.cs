@@ -7,7 +7,9 @@ namespace BlazorApp.Models
 {
     public class ProductView
     {
+        public int id { get; set; }
         public string productName { get; set; }
         public double price { get; set; }
+        public string description { get; set; }
     }
 }

@@ -199,3 +199,6 @@ D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcore
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\bin\Debug\netcoreapp3.1\BlazorInputFile.dll
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Info.razor.g.cs
+D:\Study\2 курс\OOП\Entity Framework\EFWebApiV3\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Info.razor.g.cs

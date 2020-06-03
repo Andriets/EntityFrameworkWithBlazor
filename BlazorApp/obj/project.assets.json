@@ -55,6 +55,25 @@
           "lib/netstandard2.0/Blazored.SessionStorage.dll": {}
         }
       },
+      "BlazorInputFile/0.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0-preview3.19555.2",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0-preview3.19555.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/BlazorInputFile.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/BlazorInputFile.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorInputFile.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorInputFile.props": {}
+        }
+      },
       "DevExpress.Blazor/19.2.4": {
         "type": "package",
         "dependencies": {
@@ -3328,6 +3347,24 @@
         "blazored.sessionstorage.1.0.11.nupkg.sha512",
         "blazored.sessionstorage.nuspec",
         "lib/netstandard2.0/Blazored.SessionStorage.dll"
+      ]
+    },
+    "BlazorInputFile/0.2.0": {
+      "sha512": "wsPTwoA9fkHOxjEh0W0brNeTaVBaMCFwfBLehbRhfW+RzlIrYtlJ5qFpT5f377Ej6ELk+xeoUrkDBx9c8JF7DQ==",
+      "type": "package",
+      "path": "blazorinputfile/0.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazorinputfile.0.2.0.nupkg.sha512",
+        "blazorinputfile.nuspec",
+        "build/BlazorInputFile.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorInputFile.props",
+        "buildTransitive/BlazorInputFile.props",
+        "lib/netstandard2.0/BlazorInputFile.dll",
+        "lib/netstandard2.1/BlazorInputFile.dll",
+        "staticwebassets/inputfile.js"
       ]
     },
     "DevExpress.Blazor/19.2.4": {
@@ -9933,6 +9970,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Accelist.FluentValidation.Blazor >= 2.1.0",
       "BLL >= 1.0.0",
+      "BlazorInputFile >= 0.2.0",
       "Blazored.SessionStorage >= 1.0.11",
       "DAL >= 1.0.0",
       "DevExpress.Blazor >= 19.2.4",
@@ -9997,6 +10035,10 @@
           "Accelist.FluentValidation.Blazor": {
             "target": "Package",
             "version": "[2.1.0, )"
+          },
+          "BlazorInputFile": {
+            "target": "Package",
+            "version": "[0.2.0, )"
           },
           "Blazored.SessionStorage": {
             "target": "Package",

@@ -10,6 +10,12 @@
     <EmbeddedResource Remove="ClassLibrary1\**" />
     <None Remove="ClassLibrary1\**" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20200530182915_second.cs" />
+    <Compile Remove="Migrations\20200530182915_second.Designer.cs" />
+    <Compile Remove="Migrations\20200530183346_second.cs" />
+    <Compile Remove="Migrations\20200530183346_second.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />

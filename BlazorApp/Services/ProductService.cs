@@ -27,6 +27,15 @@ namespace BlazorApp.Services
             using var responseContent = await res.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<List<ProductView>>(responseContent);
         }
+        public async Task<ProductView> GetById(int id)
+        {
+            var res = await _httpClient.GetAsync($"api/product/info/{id}");
+            res.EnsureSuccessStatusCode();
+
+            using var responseContent = await res.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<ProductView>(responseContent);
+        }
+
 
         public async Task<List<ProductView>> GetByFilter(PagingParameters p)
         {

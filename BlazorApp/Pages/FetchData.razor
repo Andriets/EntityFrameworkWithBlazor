@@ -1,5 +1,4 @@
 ﻿@page "/fetchdata"
-
 @using BlazorApp.Data
 @using Microsoft.AspNetCore.Mvc;
 @using DAL.Owner_Parameters;
@@ -8,7 +7,8 @@
 @using BlazorApp.Services;
 @using BlazorApp.Models;
 @using BLL.DTO;
-@inject ProductService productService
+@inject ProductService productService;
+@inject NavigationManager NavigationManager;
     <AuthorizeView>
         <Authorized>
             <h1>Products</h1>
@@ -46,6 +46,9 @@
                             <tr>
                                 <td>@product.productName</td>
                                 <td>@product.price</td>
+                                <td>
+                                    <a href="/fetchdata/info/@product.id">More</a>
+                                </td>
                             </tr>
                         }
                     </tbody>
