@@ -9,7 +9,7 @@ namespace ClassLibrary1.Interfaces.IServices
 {
     public interface IProductTypeService
     {
-        IEnumerable<ProductType> GetAll(PagingParameters pagingParameters);
+        IEnumerable<ProductType> GetAll();
         Task<ProductType> GetById(int id);
         void Insert(ProductType obj);
         void Update(ProductType obj);

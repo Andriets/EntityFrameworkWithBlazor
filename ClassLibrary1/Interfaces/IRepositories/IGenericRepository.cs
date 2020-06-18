@@ -10,7 +10,7 @@ namespace ClassLibrary1
     {
         IEnumerable<T> GetAll();
         Task<T> GetById(int id);
-        void Insert(T obj);
+        Task Insert(T obj);
         void Update(T obj);
         void Delete(int id);       
     }

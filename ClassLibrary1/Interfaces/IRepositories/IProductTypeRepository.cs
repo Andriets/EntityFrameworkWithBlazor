@@ -8,6 +8,5 @@ namespace ClassLibrary1.Interfaces.IRepositories
 {
     public interface IProductTypeRepository : IGenericRepository<ProductType>
     {
-        IEnumerable<ProductType> GetProductTypes(PagingParameters productParameters);
     }
 }

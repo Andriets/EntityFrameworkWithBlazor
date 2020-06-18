@@ -11,5 +11,7 @@ namespace BlazorApp.Models
         public string productName { get; set; }
         public double price { get; set; }
         public string description { get; set; }
+        public byte[] image { get; set; }
+        public int productTypeId { get; set; }
     }
 }

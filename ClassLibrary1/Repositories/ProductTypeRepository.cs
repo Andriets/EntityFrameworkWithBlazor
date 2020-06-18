@@ -12,11 +12,5 @@ namespace ClassLibrary1.Repositories
     public class ProductTypeRepository : GenericRepository<ProductType>, IProductTypeRepository
     {
         public ProductTypeRepository(ApplicationContext context) : base(context) { }
-        public IEnumerable<ProductType> GetProductTypes(PagingParameters pagingParameters)
-        {
-            return GetAll().Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
-                .Take(pagingParameters.PageSize)
-                .ToList();
-        }
     }
 }

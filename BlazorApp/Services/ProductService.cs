@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -36,7 +37,6 @@ namespace BlazorApp.Services
             return await JsonSerializer.DeserializeAsync<ProductView>(responseContent);
         }
 
-
         public async Task<List<ProductView>> GetByFilter(PagingParameters p)
         {
             var res = await _httpClient.GetAsync($"api/product/Search?pageNumber={p.PageNumber}&pageSize={p.PageSize}&price={p.Price}&type={p.Type}");
@@ -44,6 +44,22 @@ namespace BlazorApp.Services
 
             using var responseContent = await res.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<List<ProductView>>(responseContent);
+        }
+
+        public async Task SaveProduct(ProductView p)
+        {
+            var product = new ProductDTO
+            {
+                ProductName = p.productName,
+                Price = p.price,
+                Description = p.description,
+                Image = p.image,
+                ProductTypeId = p.productTypeId
+            };
+            var json = JsonSerializer.Serialize(product);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync("api/product/Product", data);
         }
     }
 }

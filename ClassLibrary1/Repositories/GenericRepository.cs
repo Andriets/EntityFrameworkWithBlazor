@@ -27,7 +27,7 @@ namespace ClassLibrary1.Repositories
         }
         public IEnumerable<T> GetAll()
         {
-            return this.context.Set<T>();
+            return  this.context.Set<T>();
         }
 
         public async Task<T> GetById(int id)
@@ -35,9 +35,9 @@ namespace ClassLibrary1.Repositories
             return await table.SingleOrDefaultAsync(s => s.Id == id);
         }
 
-        public async void Insert(T obj)
+        public async Task Insert(T obj)
         {
-            await table.AddAsync(obj);
+            table.Add(obj);
             await context.SaveChangesAsync();
         }
 

@@ -24,9 +24,9 @@ namespace ClassLibrary1.Services
             UOW.ProductTypeRepository.Delete(id);
         }
 
-        public IEnumerable<ProductType> GetAll(PagingParameters productParameters)
+        public IEnumerable<ProductType> GetAll()
         {
-            return UOW.ProductTypeRepository.GetProductTypes(productParameters);
+            return  UOW.ProductTypeRepository.GetAll();
         }
 
         public Task<ProductType> GetById(int id)

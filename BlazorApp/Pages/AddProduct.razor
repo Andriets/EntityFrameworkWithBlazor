@@ -1,0 +1,112 @@
+﻿@page "/addproduct"
+@using BlazorApp.Models;
+@using BlazorApp.Services;
+@using System.IO;
+@using Microsoft.AspNetCore.Hosting;
+@using System.Text;
+@inject IWebHostEnvironment _appEnvironment;
+@inject ProductService productService;
+@inject ProductTypeService producttypeService;
+<h3>AddProduct</h3>
+
+<EditForm Model="@ProductView" OnValidSubmit="Add">
+    <DataAnnotationsValidator />
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <p>
+            <MatTextField Label="Name" @bind-Value="ProductView.productName" />
+        </p>
+        <p>
+            <MatTextField Label="Price" @bind-Value="ProductView.price" />
+        </p>
+        <p>
+            <MatSelectItem @bind-Value="@prodType" Items="@prodTypes"></MatSelectItem>
+        </p>
+        <p>
+            Selected value: @prodType
+        </p>
+        <p>
+            <MatTextField @bind-Value="ProductView.description" Label="Description" TextArea="true" Outlined="true"></MatTextField>
+        </p>
+        <MatFileUpload OnChange="@FilesReady"></MatFileUpload>
+        @if (file != null)
+        {
+            <p>Загружен файл : @file.Name</p>
+        }
+
+    </div>
+    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+        <MatButton Type="submit" Raised="true">Add</MatButton>
+    </div>
+
+</EditForm>
+
+@code {
+    ProductView ProductView { get; set; } = new ProductView();
+    public List<ProductTypeViewModel> productTypes;
+
+    public List<string> prodTypes = new List<string>();
+    public string prodType { get; set; }
+
+    public string Error { get; set; }
+    IMatFileUploadEntry file;
+
+    protected override async Task OnInitializedAsync()
+    {
+        productTypes = await producttypeService.GetAll();
+        foreach(var p in productTypes)
+        {
+            prodTypes.Add(p.typeName);
+        }
+    }
+
+    public void FilesReady(IMatFileUploadEntry[] files)
+    {
+        file = files.FirstOrDefault();
+    }
+
+    protected async Task Add()
+    {
+        Error = "";
+        try
+        {
+            if (file == null)
+                throw new Exception("File not found");
+            if (file.Type != "image/jpeg")
+                throw new Exception("File in the wrong format! Please use .jpg");
+
+            byte[] image = await AddFile(file);
+            ProductView.image = image;
+            ProductTypeViewModel type = productTypes.Where(p => p.typeName == prodType).FirstOrDefault();
+            ProductView.productTypeId = type.id;
+
+            await productService.SaveProduct(ProductView);
+            /* if (!result.IsSuccessStatusCode)
+                 throw new Exception(result.StatusCode.ToString());*/
+        }
+        catch (Exception e)
+        {
+            Error = e.Message;
+        }
+    }
+
+    protected async Task<byte[]> AddFile(IMatFileUploadEntry uploadedFile)
+    {
+        if (uploadedFile != null)
+        {
+            //var newFile = await uploadedFile.ToImageFileAsync("image/jpeg", 1280, 720); 
+
+            var date = DateTime.Now;
+            string path = "/images/"
+                + $"{date.Year}_{date.Month}_{date.Day}_{date.Hour}_{date.Minute}_{date.Second}_"
+                + uploadedFile.Name;
+
+            using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+            {
+                await uploadedFile.WriteToStreamAsync(filestream);
+            }
+            return Encoding.UTF8.GetBytes(path);
+        }
+        else
+            return null;
+    }
+}

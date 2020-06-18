@@ -76,7 +76,12 @@ namespace BlazorApp
             services.AddHttpClient<Services.AccountService>(client =>
             {
                 client.BaseAddress = new Uri("http://localhost:5001");
-            });  
+            });
+
+            services.AddHttpClient<Services.ProductTypeService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5001");
+            });
 
         }
 

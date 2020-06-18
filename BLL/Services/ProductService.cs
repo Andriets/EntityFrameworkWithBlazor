@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using BLL.DTO;
 
 namespace ClassLibrary1.Services
 {
@@ -41,9 +42,17 @@ namespace ClassLibrary1.Services
             return UOW.ProductRepository.GetById(id);
         }
 
-        public void Insert(Product obj)
+        public void Insert(ProductDTO obj)
         {
-            UOW.ProductRepository.Insert(obj);
+            Product product = new Product
+            {
+                ProductName = obj.ProductName,
+                Price = obj.Price,
+                Image = obj.Image,
+                Description = obj.Description,
+                ProductTypeId = obj.ProductTypeId
+            };
+            UOW.ProductRepository.Insert(product);
         }
 
         public void Update(Product obj)

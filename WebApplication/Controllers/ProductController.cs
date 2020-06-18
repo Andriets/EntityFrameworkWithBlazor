@@ -78,7 +78,7 @@ namespace EFWebApiV3.Controllers
 
         [Route("Product")]
         [HttpPost]
-        public void Post([FromBody]Product product)
+        public void Post([FromBody]ProductDTO product)
         {
             _ProductService.Insert(product);
         }

@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace EFWebApiV3.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductTypeController : ControllerBase
     {
         #region Propertirs
@@ -30,9 +32,9 @@ namespace EFWebApiV3.Controllers
         #region APIs
         [Route("ProductTypes")]
         [HttpGet]
-        public IActionResult Get([FromQuery] PagingParameters pagingParameters)
+        public ActionResult<List<ProductType>> Get()
         {
-            var models = _ProductTypeService.GetAll(pagingParameters).ToList();
+            var models = _ProductTypeService.GetAll().ToList();
             var list = _mapper.Map<List<ProductType>, List<ProductTypeDTO>>(models);
             if (list == null)
                 return NotFound("Empty");

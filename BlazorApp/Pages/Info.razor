@@ -1,22 +1,25 @@
 ﻿@page "/fetchdata/info/{prodId:int}"
 @using BlazorApp.Services;
+@using System.Text;
 @inject ProductService productService;
-    <div class="container">
-        <img class="infoimg" src="images/krzp-dock-icons-v-1-2-empty-grey-empty-text-png-clipart.jpg" alt="">
-        <h1 class="infoh1">@productView.productName</h1>
-        <h3 class="infoh3">@productView.price</h3>
-        <div class="infodescription">
-            <p>@productView.description</p>
-        </div>
+<div class="container">
+    <img class="infoimg" src="@path" alt="">
+    <h1 class="infoh1">@productView.productName</h1>
+    <h3 class="infoh3">@productView.price UAH</h3>
+    <div class="infodescription">
+        <p>@productView.description</p>
     </div>
+</div>
 
 @code {
     [Parameter]
     public int ProdId { get; set; }
     ProductView productView { get; set; } = new ProductView();
+    public string path { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         productView = await productService.GetById(ProdId);
+        path = Encoding.UTF8.GetString(productView.image);
     }
 }
